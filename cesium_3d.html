@@ -71,7 +71,8 @@ function init(){
     div.appendChild(btn);
   })(ks[i])}
   document.getElementById('m').innerHTML=ks.length+'个案例就绪';
-  show(ks[0]);
+  var want=decodeURIComponent((location.search.match(/[?&]case=([^&]*)/)||[,''])[1]);
+  show(ks.indexOf(want)>=0?want:ks[0]);
 }
 
 function clr(){Z.viewer.entities.removeAll();if(Z.drone){Z.viewer.entities.remove(Z.drone);Z.drone=null}if(Z.parts){for(var i=0;i<Z.parts.length;i++)Z.viewer.entities.remove(Z.parts[i]);Z.parts=null}}
